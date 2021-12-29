@@ -4,51 +4,51 @@ import './App.css';
 import EmptyBlock from './components/EmptyBlock';
 import Phrase from './components/Phrase';
 
+const adjectivesArr = [
+  'абсолютный',
+  'азартный',
+  'активный',
+  'ангельский',
+  'астрономический',
+  'баснословный',
+  'безбрежный',
+  'безвозвратный',
+  'безграничный',
+  'бездонный',
+  'бездушный',
+  'безжалостный',
+  'замечательно',
+  'замечательный',
+  'записной',
+  'запредельный',
+  'заядлый',
+  'звериный',
+  'зверский',
+  'зеленый',
+  'злой',
+  'злостный',
+  'значительный',
+  'неоспоримый',
+  'неотразимый',
+  'неоценимый',
+  'непередаваемый',
+];
+
+const nounsArr = [
+  'лгун',
+  'день',
+  'конь',
+  'олень',
+  'человек',
+  'программист',
+  'ребёнок',
+  'конец',
+  'город',
+  'дурак',
+];
+
 function App() {
   const [phrasesArr, setPhrases] = useState([]);
-
-  const adjectivesArr = [
-    'абсолютный',
-    'азартный',
-    'активный',
-    'ангельский',
-    'астрономический',
-    'баснословный',
-    'безбрежный',
-    'безвозвратный',
-    'безграничный',
-    'бездонный',
-    'бездушный',
-    'безжалостный',
-    'замечательно',
-    'замечательный',
-    'записной',
-    'запредельный',
-    'заядлый',
-    'звериный',
-    'зверский',
-    'зеленый',
-    'злой',
-    'злостный',
-    'значительный',
-    'неоспоримый',
-    'неотразимый',
-    'неоценимый',
-    'непередаваемый',
-  ];
-
-  const nounsArr = [
-    'лгун',
-    'день',
-    'конь',
-    'олень',
-    'человек',
-    'программист',
-    'ребёнок',
-    'конец',
-    'город',
-    'дурак',
-  ];
 
   const makePfrase = () => {
     return (
@@ -66,28 +66,27 @@ function App() {
 
   const clearPhrasesArr = () => {
     setPhrases([]);
-    console.log(phrasesArr.length);
   };
 
   return (
     <>
       <div className="wrapper">
-        {phrasesArr.length === 0 ? (
+        {!phrasesArr.length ? (
           <EmptyBlock />
         ) : (
           <Phrase
-          text={phrasesArr.map((elemArr, index) => (
-            <div key={index} className="block">
-              <h3>{elemArr}</h3>
-            </div>
-          ))}
-        />
+            text={phrasesArr.map((elemArr, index) => (
+              <div key={index} className="block">
+                <h3>{elemArr}</h3>
+              </div>
+            ))}
+          />
         )}
 
-        <button onClick={() => addNewPhrases()} className="btn btn_generate">
+        <button onClick={addNewPhrases} className="btn btn_generate">
           Сгенерировать
         </button>
-        <button onClick={() => clearPhrasesArr()} className="btn btn_clear">
+        <button onClick={clearPhrasesArr} className="btn btn_clear">
           Очистить
         </button>
       </div>
