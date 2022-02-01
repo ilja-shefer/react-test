@@ -1,0 +1,29 @@
+body {
+  background-color: #fcfcfc;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.paper {
+  width: 100%;
+  justify-content: center;
+}
+
+.list {
+  min-width: 100%;
+}
+
+.list-item {
+  min-width: 100%;
+}
+
+.add-form {
+  padding: 30px;
+}
+
+.text-field {
+  margin: 10px;
+}
